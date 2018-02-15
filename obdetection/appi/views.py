@@ -11,6 +11,8 @@ from appi.detection import detection
 # Endpoints definition
 @csrf_exempt
 def detect(request):
+	if request.method == "GET":
+		result = {"API info": "Welcome to the API \nRead carefully the following documentation \nMake request via POST method"}
 	if request.method == "POST":
 		# Dealing with encoded data
 		file_encoded = request.POST.get('data', None)
