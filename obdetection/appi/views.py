@@ -12,7 +12,17 @@ from appi.detection import detection
 @csrf_exempt
 def detect(request):
 	if request.method == "GET":
-		result = {"API info": "Welcome to the API \nRead carefully the following documentation \nMake request via POST method"}
+		result = {"Object detection API": "Welcome to the API"}
+		result.update({"API info": "Read carefully the following documentation"})
+		result.update({"Description": "Send request via POST method to url"})
+		result.update({"Url":"ec2-34-229-77-45.compute-1.amazonaws.com"})
+		result.update({"POrt": 8000})
+		result.update({"Endpoint": "/detect"})
+		result.update({"Parameters": {"data": "Base 64 image encoded", \
+			"type": "Type of data (ex. image)"}})
+		result.update({"Response": {"Detected": "True or False", "Dimensions": \
+			"Dimensions of image", "Objects": "List of recognized objects"},})
+
 	if request.method == "POST":
 		# Dealing with encoded data
 		file_encoded = request.POST.get('data', None)
