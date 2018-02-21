@@ -4,7 +4,7 @@ import os
 
 import numpy as np
 import cv2
-
+import base64
 
 
 # Initial settings 
@@ -87,5 +87,8 @@ def detection(image, networkModel=prototxt, trainedModel=model):
 		}
 		#object_det = {'object': label, 'confidence':}
 		result.update({"Detected": True, "Dimensions": image_dim, "Objects": object_detected})
+		retval, buffer = cv2.imencode('.jpg', image)
+		jpg_as_text = base64.b64encode(buffer)
 
+		result.update({"Img64": jpg_as_text.decode("utf-8")})
 	return result
