@@ -48,6 +48,7 @@ def detection(image, networkModel=prototxt, trainedModel=model):
 	# Loop over the detections
 	for i in np.arange(0, detections.shape[2]):
 		confidence = detections[0, 0, i, 2]
+		print("confidence", confidence)
 		if confidence > 0.5:
 			# Get the index of label
 			id_label = int(detections[0, 0, i, 1])
@@ -70,8 +71,10 @@ def detection(image, networkModel=prototxt, trainedModel=model):
 
 			cv2.putText(image, label, (ini_x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[id_label], 2)
 			succeeded = 1
+			print("succeeded", succeeded)
 		else:
-			succeeded = 0
+			if succeeded == 0:
+			    succeeded = 0
 
 
 
