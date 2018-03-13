@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 from appi import views 
 
 urlpatterns = [
+	url(r'^', include('tfdetectionappi.urls')),
 	url(r'^detect/$', views.detect),
-    path('admin/', admin.site.urls),
+	path('admin/', admin.site.urls),
 ]

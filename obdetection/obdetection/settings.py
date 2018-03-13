@@ -25,7 +25,7 @@ SECRET_KEY = '3_o%r-2irqti60m!a7(7^0tfvu4jv#-!0z3(ykr7^fyf-(cz3m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 CORS_ORIGIN_ALLOW_ALL = True
-ALLOWED_HOSTS = ['ec2-34-229-77-45.compute-1.amazonaws.com']
+ALLOWED_HOSTS = ['127.0.0.1','ec2-34-229-77-45.compute-1.amazonaws.com']
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'appi'
+    'appi',
+    'tfdetectionappi',
 ]
 
 MIDDLEWARE = [
