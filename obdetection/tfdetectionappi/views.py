@@ -11,7 +11,7 @@ from tfdetectionappi.objectdetection import detect_objects
 @csrf_exempt
 def detect(request):
 	if request.method == "GET":
-		result = {"Welcome to more advanced object detection API":"frcnn"}
+		result = {"Welcome to the more advanced object detection API":"frcnn"}
 	if request.method == "POST":
 		data_encoded = request.POST.get('data', None)
 		data_decoded = base64.b64decode(data_encoded)

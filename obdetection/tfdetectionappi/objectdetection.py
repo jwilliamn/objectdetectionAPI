@@ -130,7 +130,8 @@ def detect_objects(image):
 			"height": h,
 		}	
 	result.update({"Detected": True, "Dimensions": image_dim, "Objects": object_detected})
-	retval, buffer = cv2.imencode('.jpg', image_np)
+	image_np = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
+	retval, buffer = cv2.imencode('.jpg', image_np, )
 	jpg_as_text = base64.b64encode(buffer)
 
 	result.update({"Img64": jpg_as_text.decode("utf-8")})
